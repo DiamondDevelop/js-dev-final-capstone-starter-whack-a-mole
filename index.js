@@ -21,7 +21,8 @@ let difficulty = "hard";
  *
  */
 function randomInteger(min, max) {
-  // return Math.floor(Math.random() * (max - min + 1)) + min;
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+
 }
 
 /**
@@ -41,7 +42,21 @@ function randomInteger(min, max) {
  */
 function setDelay(difficulty) {
   // TODO: Write your code here.
-  
+  try {
+    if (difficulty === "easy") {
+      timeDelay = 1500;
+    } else if (difficulty === "normal"){
+     timeDelay = 1000;
+    } else if (difficulty === "hard"){
+    const randNum = Math.floor(Math.random() * (1200 - 600 + 1)) + 600;
+    timeDelay = randNum;      
+    } else {
+      timeDelay = 200;
+    }
+  } catch (error){
+    console.log("error: difficulty not set", error);
+  }
+  return timeDelay;
 }
 
 /**
